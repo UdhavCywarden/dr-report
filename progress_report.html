@@ -9,7 +9,1461 @@
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@500;600;700&display=swap"
         rel="stylesheet">
     <style>
+        * {<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Dashboard – One Pager</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&family=Barlow+Condensed:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B2A4A;
+            --navy2: #243354;
+            --blue: #2E6BE6;
+            --teal: #0FB8C9;
+            --green: #22C55E;
+            --amber: #F59E0B;
+            --red: #EF4444;
+            --purple: #7C3AED;
+            --silver: #F0F4FA;
+            --border: #D8E3F0;
+            --text: #1B2A4A;
+            --muted: #7A8BA8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background: #E8EEF7;
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--text);
+            padding: 0;
+        }
+
+        /* ── SLIDE WRAPPER ── */
+        .slide {
+            width: 98%;
+            min-height: 675px;
+            background: var(--silver);
+            margin: 32px auto;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── HEADER BAND ── */
+        .header {
+            background: var(--navy);
+            padding: 14px 24px 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo {
+            width: 38px;
+            height: 38px;
+            background: var(--blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-logo svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .header-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .header-main {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+        }
+
+        .header-subtitle {
+            font-size: 11px;
+            color: #8FA8CE;
+            margin-top: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hbadge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .hbadge-amber {
+            background: rgba(245, 158, 11, 0.2);
+            color: #FCD34D;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+        }
+
+        .hbadge-blue {
+            background: rgba(46, 107, 230, 0.25);
+            color: #93C5FD;
+            border: 1px solid rgba(46, 107, 230, 0.4);
+        }
+
+        .hbadge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .header-date {
+            font-size: 11px;
+            color: #8FA8CE;
+        }
+
+        /* ── CONTENT AREA ── */
+        .content {
+            flex: 1;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 230px 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 12px;
+        }
+
+        /* ── SHARED CARD ── */
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07), 0 0 0 1px var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-title::before {
+            content: '';
+            width: 3px;
+            height: 12px;
+            background: var(--blue);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* ── KPI COLUMN (left) ── */
+        .kpi-col {
+            grid-column: 1;
+            grid-row: 1 / 4;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .kpi-box {
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07), 0 0 0 1px var(--border);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .kpi-box::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .kpi-green::after { background: var(--green); }
+        .kpi-blue::after { background: var(--blue); }
+        .kpi-amber::after { background: var(--amber); }
+        .kpi-purple::after { background: var(--purple); }
+
+        .kpi-label {
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .kpi-value {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .kpi-value span {
+            font-size: 15px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .kpi-sub {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .kpi-bar-bg {
+            height: 4px;
+            background: var(--silver);
+            border-radius: 99px;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+
+        .kpi-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+        }
+
+        /* ── DATA INTEGRATIONS (top-center) ── */
+        .integrations-card {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        /* ── SCROLLABLE CARD INNER ── */
+        .scroll-inner {
+            overflow-y: auto;
+            max-height: 148px;
+            padding-right: 4px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+
+        .scroll-inner::-webkit-scrollbar { width: 4px; }
+        .scroll-inner::-webkit-scrollbar-track { background: transparent; }
+        .scroll-inner::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+        .scroll-fade { position: relative; }
+
+        .scroll-fade::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: linear-gradient(to bottom, transparent, #fff);
+            pointer-events: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .phase2-card .scroll-fade::after {
+            background: linear-gradient(to bottom, transparent, #1e3360);
+        }
+
+        .metrics-card .scroll-fade::after {
+            background: linear-gradient(to bottom, transparent, #fff);
+        }
+
+        .int-table { width: 100%; }
+
+        .int-row {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 8px;
+        }
+
+        .int-row:last-child { border-bottom: none; }
+
+        .int-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 10px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .int-name {
+            flex: 1;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .int-badge {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 99px;
+        }
+
+        .b-green { background: #DCFCE7; color: #166534; }
+        .b-amber { background: #FEF3C7; color: #92400E; }
+        .b-gray  { background: #F1F5F9; color: #64748B; }
+
+        /* ── SPRINT CARD (top-right) ── */
+        .sprint-card { grid-column: 3; grid-row: 1; }
+
+        /* ── METRICS CARD (mid-right) ── */
+        .metrics-card {
+            grid-column: 3;
+            grid-row: 2;
+            overflow: visible;
+        }
+
+        .sprint-body {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Donut */
+        .donut-wrap {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            flex-shrink: 0;
+        }
+
+        .donut-wrap svg { transform: rotate(-90deg); }
+
+        .donut-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-big {
+            font-family: 'Barlow Condensed';
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .donut-sm { font-size: 10px; color: var(--muted); }
+
+        .sprint-stats { flex: 1; }
+
+        .sprint-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .sprint-row-label { font-size: 10px; color: var(--muted); font-weight: 600; }
+        .sprint-row-val   { font-size: 10px; font-weight: 800; color: var(--text); }
+
+        .pbar {
+            height: 7px;
+            background: var(--silver);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-top: 3px;
+        }
+
+        .pbar-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--blue), var(--teal));
+        }
+
+        .status-chip {
+            margin-top: 8px;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-size: 10px;
+            color: #1D4ED8;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* ── MILESTONES (bottom-center) ── */
+        .milestones-card { grid-column: 2; grid-row: 2 / 4; }
+
+        .ms-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ms-row:last-child { border-bottom: none; }
+
+        .rings-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        .ring-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .ring-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Fluid ring container — replaces inline width/height */
+        .ring-svg-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 70px;
+            aspect-ratio: 1 / 1;
+        }
+
+        .ring-svg-wrap svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .ring-svg-wrap .ring-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ring-svg-wrap .ring-val {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(9px, 2vw, 17px);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .ring-svg-wrap .ring-sub {
+            font-size: clamp(5px, 1.1vw, 8px);
+            color: var(--muted);
+            line-height: 1;
+            margin-top: 1px;
+        }
+
+        .ms-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .ms-done { background: #DCFCE7; color: #166534; }
+        .ms-prog  { background: #FEF3C7; color: #92400E; }
+        .ms-todo  { background: #F1F5F9; color: #64748B; }
+
+        .ms-text { flex: 1; }
+
+        .ms-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .ms-title.done { text-decoration: line-through; color: var(--muted); }
+        .ms-sub { font-size: 9px; color: var(--muted); margin-top: 1px; }
+
+        .ms-track {
+            display: flex;
+            gap: 3px;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .ms-track-seg { flex: 1; height: 5px; border-radius: 99px; }
+        .ms-track-label { font-size: 9px; color: var(--muted); margin-left: 8px; }
+
+        /* ── PHASE 2 (bottom-right) ── */
+        .phase2-card {
+            grid-column: 3;
+            grid-row: 3;
+            background: linear-gradient(135deg, #1B2A4A 0%, #2E3D6B 100%);
+            border: none;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+        }
+
+        .phase2-card .card-title { color: #93C5FD; }
+        .phase2-card .card-title::before { background: #7C3AED; }
+
+        .ph2-items { display: flex; flex-direction: column; gap: 7px; }
+
+        .ph2-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 7px 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ph2-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(124, 58, 237, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+
+        .ph2-content { flex: 1; }
+
+        .ph2-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #E2E8F0;
+            line-height: 1.2;
+        }
+
+        .ph2-desc {
+            font-size: 9px;
+            color: #8FA8CE;
+            margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        .ph2-footer {
+            margin-top: 8px;
+            padding-top: 7px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ph2-footer-text { font-size: 9px; color: #8FA8CE; }
+
+        .ph2-chip {
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background: rgba(124, 58, 237, 0.3);
+            color: #C4B5FD;
+            border: 1px solid rgba(124, 58, 237, 0.4);
+        }
+
+        /* ── METRICS CARD styles ── */
+        .metric-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            background: #EEF4FF;
+            color: #2E6BE6;
+            border: 1px solid #BFDBFE;
+            margin: 3px;
+            white-space: nowrap;
+        }
+
+        .metric-tag .mtdot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--blue);
+            flex-shrink: 0;
+        }
+
+        .metric-tag.sub { background: #F0FDF4; color: #166534; border-color: #BBF7D0; }
+        .metric-tag.sub .mtdot { background: var(--green); }
+
+        .metric-tags-wrap { display: flex; flex-wrap: wrap; margin: -3px; }
+
+        .scroll-label {
+            font-size: 9px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 4px;
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── PROGRESS METER (inside metrics card) ── */
+        .metrics-progress {
+            background: #F4F7FF;
+            border: 1px solid #DAEAFF;
+            border-radius: 7px;
+            padding: 7px 9px 8px;
+            margin-bottom: 8px;
+        }
+
+        .mp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .mp-label {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #4B5E8A;
+        }
+
+        .mp-count {
+            font-size: 9.5px;
+            font-weight: 800;
+            color: #2E6BE6;
+            background: #EEF4FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 99px;
+            padding: 1px 7px;
+        }
+
+        .mp-track {
+            height: 5px;
+            background: #DDE8FF;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .mp-fill {
+            height: 100%;
+            width: 27.27%;
+            background: linear-gradient(90deg, #2E6BE6, #5B9BFF);
+            border-radius: 99px;
+        }
+
+        .mp-sub {
+            font-size: 9px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .mp-sub span { color: #2E6BE6; font-weight: 700; }
+
+        /* group labels inside scroll */
+        .metrics-group-label {
+            font-size: 8.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            padding: 5px 2px 3px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .metrics-group-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* done tick on metric items */
+        .ph2-item.mc-done {
+            background: #EEF4FF;
+            border-color: #BFDBFE;
+            position: relative;
+        }
+
+        .ph2-item.mc-done::after {
+            content: '✓';
+            position: absolute;
+            top: 6px;
+            right: 7px;
+            font-size: 9px;
+            color: #2E6BE6;
+            background: #DBEAFE;
+            border-radius: 99px;
+            width: 14px;
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            line-height: 14px;
+            text-align: center;
+        }
+
+        .ph2-item.mc-pending { background: #F0FDF4; border-color: #BBF7D0; }
+        .ph2-item.mc-infra   { background: #FFF7ED; border-color: #FED7AA; }
+        .ph2-item.mc-db      { background: #FFF8F0; border-color: #FBCFE8; }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--navy);
+            padding: 7px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-left  { font-size: 10px; color: #8FA8CE; }
+        .footer-right { font-size: 10px; color: #8FA8CE; }
+
+        .footer-center { display: flex; gap: 16px; }
+
+        .fc-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 9px;
+            color: #8FA8CE;
+        }
+
+        .fc-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+        @media print {
+            body { background: #fff; }
+            .slide { margin: 0; box-shadow: none; width: 100%; }
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — Tablet landscape (≤1024px)
+           2-col layout: KPIs left, rest right
+        ══════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .slide { min-height: unset; margin: 16px auto; width: 100%; }
+
+            .content {
+                grid-template-columns: 180px 1fr;
+                grid-template-rows: auto auto auto auto;
+                gap: 10px;
+            }
+
+            .kpi-col        { grid-column: 1; grid-row: 1 / 5; }
+            .integrations-card { grid-column: 2; grid-row: 1; }
+            .progress-chart-card { grid-column: 2; grid-row: 2; }
+            .milestones-card { grid-column: 2; grid-row: 3; }
+            .metrics-card   { grid-column: 2; grid-row: 4; }
+            .phase2-card    { grid-column: 2; grid-row: 5; }
+
+            .rings-row { flex-wrap: nowrap; justify-content: space-around; gap: 8px; }
+            .ring-svg-wrap { max-width: 58px; }
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — Tablet portrait / large mobile (≤768px)
+           Single column, KPIs become horizontal row
+        ══════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .slide { margin: 0; width: 100%; border-radius: 0; }
+
+            /* Header stacks */
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 12px 16px;
+            }
+            .header-right {
+                flex-wrap: wrap;
+                gap: 8px;
+                width: 100%;
+            }
+            .header-main { font-size: 16px; }
+
+            /* Full single-column grid */
+            .content {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                padding: 12px;
+                gap: 10px;
+            }
+
+            /* KPI column becomes a 2×2 grid row */
+            .kpi-col {
+                grid-column: 1;
+                grid-row: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .kpi-box {
+                flex: 1 1 calc(50% - 4px);
+                min-width: 140px;
+            }
+            .kpi-value { font-size: 28px; }
+
+            /* All cards full width */
+            .integrations-card,
+            .progress-chart-card,
+            .milestones-card,
+            .metrics-card,
+            .phase2-card {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            /* Sprint rings stay in one row, shrink fluidly */
+            .rings-row { flex-wrap: nowrap; gap: 8px; }
+            .ring-svg-wrap { max-width: 62px; }
+            .ring-label { font-size: 9px; }
+
+            /* Milestones inner flex to column */
+            .milestones-card > div {
+                flex-direction: column !important;
+                gap: 12px;
+            }
+
+            /* Sprint body stacks on small screens */
+            .sprint-body {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .donut-wrap { align-self: center; }
+
+            /* Scroll areas: open up max-height on mobile so user can see content */
+            .scroll-inner { max-height: 260px; }
+
+            /* Footer stacks */
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 10px 16px;
+            }
+            .footer-center { flex-wrap: wrap; gap: 10px; }
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — Small mobile (≤480px)
+        ══════════════════════════════════════ */
+        @media (max-width: 480px) {
+            .header-main { font-size: 14px; }
+            .hbadge { font-size: 10px; padding: 4px 8px; }
+            .header-date { display: none; }
+
+            .content { padding: 8px; gap: 8px; }
+
+            /* KPIs go full width one per row */
+            .kpi-box { flex: 1 1 100%; }
+            .kpi-value { font-size: 30px; }
+
+            .card { padding: 10px 12px; }
+            .card-title { font-size: 11px; }
+
+            /* Rings shrink further on small screens */
+            .rings-row { gap: 6px; }
+            .ring-svg-wrap { max-width: 50px; }
+            .ring-label { font-size: 8px; }
+
+            .sprint-body { gap: 10px; }
+            .sprint-row-val { font-size: 9px; }
+
+            /* Fully open scroll on small screens */
+            .scroll-inner { max-height: none; }
+            .scroll-fade::after { display: none; }
+
+            .ms-title { font-size: 10px; }
+            .ms-sub { font-size: 8px; }
+
+            .ph2-title { font-size: 10px; }
+            .ph2-desc  { font-size: 8.5px; }
+
+            .footer-right { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide">
+
+        <!-- ── HEADER ── -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <img src="./Ahead_India.jfif" alt="Logo">
+                </div>
+                <div>
+                    <div class="header-main">Helix Resilience Metrics Progress Report</div>
+                    <div class="header-subtitle">Phase 1 · Engineering Delivery </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="hbadge hbadge-amber"><span class="dot"></span> Sprint 7 of 13 Active</span>
+                <span class="hbadge hbadge-blue"><span class="dot"></span> On Track</span>
+                <div class="header-date">Feb 2026</div>
+            </div>
+        </div>
+
+        <!-- ── MAIN CONTENT ── -->
+        <div class="content">
+
+            <!-- ── LEFT KPI COLUMN ── -->
+            <div class="kpi-col">
+
+                <div class="kpi-box kpi-green">
+                    <div class="kpi-label">Integrations Done</div>
+                    <div class="kpi-value">3 <span>/ 6</span></div>
+                    <div class="kpi-sub">ServiceNow EA · VEOCI · AWS Backup (Devhub)</div>
+                    <div class="kpi-bar-bg">
+                        <div class="kpi-bar-fill" style="width:60%;background:var(--green);"></div>
+                    </div>
+                </div>
+
+                <div class="kpi-box kpi-blue">
+                    <div class="kpi-label">Sprints Complete</div>
+                    <div class="kpi-value">8 <span>/ 13</span></div>
+                    <div class="kpi-sub">53% sprint velocity</div>
+                    <div class="kpi-bar-bg">
+                        <div class="kpi-bar-fill" style="width:53.8%;background:var(--blue);"></div>
+                    </div>
+                </div>
+
+                <div class="kpi-box kpi-amber">
+                    <div class="kpi-label">Milestones Hit</div>
+                    <div class="kpi-value">2 <span>/ 4</span></div>
+                    <div class="kpi-sub">Arch + Design docs complete</div>
+                    <div class="kpi-bar-bg">
+                        <div class="kpi-bar-fill" style="width:50%;background:var(--amber);"></div>
+                    </div>
+                </div>
+
+                <div class="kpi-box kpi-purple">
+                    <div class="kpi-label">Metrics Progress</div>
+                    <div class="kpi-value">38<span>%</span></div>
+                    <div class="kpi-sub">Phase 1 delivery status</div>
+                    <div class="kpi-bar-bg">
+                        <div class="kpi-bar-fill" style="width:58%;background:var(--purple);"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── DATA INTEGRATIONS ── -->
+            <div class="card integrations-card">
+                <div class="card-title">Data Source Integrations</div>
+
+                <div class="int-row">
+                    <div class="int-icon" style="background:#1B7F4A;">SN</div>
+                    <div class="int-name">ServiceNow EA</div>
+                    <span class="int-badge b-green">✔ Done</span>
+                </div>
+                <div class="int-row">
+                    <div class="int-icon" style="background:#0369A1;">VO</div>
+                    <div class="int-name">VEOCI</div>
+                    <span class="int-badge b-green">✔ Done</span>
+                </div>
+                <div class="int-row">
+                    <div class="int-icon" style="background:#D97706;">AW</div>
+                    <div class="int-name">AWS Backup (Devhub)</div>
+                    <span class="int-badge b-green">✔ Done</span>
+                </div>
+                <div class="int-row">
+                    <div class="int-icon" style="background:#7B2DBF;">DD</div>
+                    <div class="int-name">Datadog</div>
+                    <span class="int-badge b-amber">⟳ In Progress</span>
+                </div>
+                <div class="int-row">
+                    <div class="int-icon" style="background:#D97706;">ME</div>
+                    <div class="int-name">AWS (Master EventBridge)</div>
+                    <span class="int-badge b-amber">⟳ In Progress</span>
+                </div>
+                <div class="int-row">
+                    <div class="int-icon" style="background:#94A3B8;">CM</div>
+                    <div class="int-name">ServiceNow CMDB</div>
+                    <span class="int-badge b-amber">⟳ In Progress</span>
+                </div>
+
+                <div style="display:flex;gap:14px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border);">
+                    <div style="font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:6px;height:6px;background:#22C55E;border-radius:1px;"></span>Done (50%)</div>
+                    <div style="font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:6px;height:6px;background:#F59E0B;border-radius:1px;"></span>In-Prog (50%)</div>
+                    <!-- <div style="font-size:8px;color:var(--muted);display:flex;align-items:center;gap:3px;"><span style="display:inline-block;width:6px;height:6px;background:#E2E8F0;border-radius:1px;"></span>Scoped (20%)</div> -->
+                </div>
+            </div>
+
+            <!-- ── SPRINT CARD ── -->
+            <div class="card progress-chart-card">
+                <div class="card-title">Overall Work Done · Phase 1</div>
+
+                <div class="rings-row">
+
+                    <div class="ring-wrap">
+                        <div class="ring-svg-wrap">
+                            <svg viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="#DCFCE7" stroke-width="6" />
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="#22C55E" stroke-width="6"
+                                    stroke-dasharray="144.5" stroke-dashoffset="57.8" stroke-linecap="round" />
+                            </svg>
+                            <div class="ring-center">
+                                <span class="ring-val" style="color:#166534;">50%</span>
+                                <span class="ring-sub">3/6</span>
+                            </div>
+                        </div>
+                        <div class="ring-label" style="color:#166534;">Integrations</div>
+                    </div>
+
+                    <div class="ring-wrap">
+                        <div class="ring-svg-wrap">
+                            <svg viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="#EEF4FF" stroke-width="6" />
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="url(#sg)" stroke-width="6"
+                                    stroke-dasharray="144.5" stroke-dashoffset="66.5" stroke-linecap="round" />
+                                <defs>
+                                    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#2E6BE6" />
+                                        <stop offset="100%" stop-color="#0FB8C9" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="ring-center">
+                                <span class="ring-val" style="color:#1D4ED8;">62%</span>
+                                <span class="ring-sub">8/13</span>
+                            </div>
+                        </div>
+                        <div class="ring-label" style="color:#1D4ED8;">Sprints</div>
+                    </div>
+
+                    <div class="ring-wrap">
+                        <div class="ring-svg-wrap">
+                            <svg viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="#FEF9EE" stroke-width="6" />
+                                <circle cx="29" cy="29" r="23" fill="none" stroke="#F59E0B" stroke-width="6"
+                                    stroke-dasharray="144.5" stroke-dashoffset="72.3" stroke-linecap="round" />
+                            </svg>
+                            <div class="ring-center">
+                                <span class="ring-val" style="color:#92400E;">50%</span>
+                                <span class="ring-sub">2/4</span>
+                            </div>
+                        </div>
+                        <div class="ring-label" style="color:#92400E;">Milestones</div>
+                    </div>
+
+                    <div class="ring-wrap">
+                        <div class="ring-svg-wrap" style="max-width:70px;">
+                            <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="35" cy="35" r="28" fill="none" stroke="#EDE9FE" stroke-width="7" />
+                                <circle cx="35" cy="35" r="28" fill="none" stroke="url(#og)" stroke-width="7"
+                                    stroke-dasharray="175.9" stroke-dashoffset="73.9" stroke-linecap="round" />
+                                <defs>
+                                    <linearGradient id="og" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#7C3AED" />
+                                        <stop offset="100%" stop-color="#2E6BE6" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="ring-center">
+                                <span class="ring-val" style="color:#5B21B6;">38%</span>
+                                <span class="ring-sub">3/8</span>
+                            </div>
+                        </div>
+                        <div class="ring-label" style="color:#5B21B6;font-weight:800;">Metrics Progress</div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                        <span style="font-size:9px;color:var(--muted);font-weight:600;">Phase 1 · Sprint Timeline</span>
+                        <span style="font-size:9px;font-weight:800;color:var(--purple);">62% Delivered</span>
+                    </div>
+                    <div style="height:9px;background:var(--silver);border-radius:99px;overflow:hidden;position:relative;">
+                        <div style="width:69%;height:100%;background:linear-gradient(90deg,#22C55E 0%,#2E6BE6 55%,#7C3AED 100%);border-radius:99px;"></div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;margin-top:4px;">
+                        <span style="font-size:8px;color:var(--muted);">Sprint 1</span>
+                        <span style="font-size:8px;color:var(--blue);font-weight:800;">▲ Sprint 9 (current)</span>
+                        <span style="font-size:8px;color:var(--muted);">Sprint 13</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── INTEGRATED METRICS CARD ── -->
+            <div class="card metrics-card">
+                <div class="card-title">Integrated Metrics on Dashboard</div>
+
+                <!-- Progress Meter -->
+                <div class="metrics-progress">
+                    <div class="mp-header">
+                        <div class="mp-label">Coverage Progress</div>
+                        <div class="mp-count">3 / 8 Live</div>
+                    </div>
+                    <div class="mp-track">
+                        <div class="mp-fill"></div>
+                    </div>
+                    <div class="mp-sub"><span>3 metrics</span> delivered · 5 remaining across all control families</div>
+                </div>
+
+                <div class="scroll-fade" style="position:relative;">
+                    <div class="scroll-inner" style="max-height:148px;">
+                        <div class="ph2-items">
+
+                            <!-- Disaster Recovery group -->
+                            <div class="metrics-group-label">Disaster Recovery</div>
+
+                            <div class="ph2-item mc-pending" style="border-color:#BFDBFE;">
+                                <div class="ph2-icon" style="background:rgba(34,197,94,0.18);font-size:11px;">🛡️</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;padding-right:16px;">DR Exercise Tracking</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Monitors scheduled DR exercises, completion rates and outcomes across all systems</div>
+                                </div>
+                            </div>
+
+                            <div class="ph2-item mc-pending" style="border-color:#BFDBFE;">
+                                <div class="ph2-icon" style="background:rgba(34,197,94,0.18);font-size:11px;">📋</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;padding-right:16px;">DR Governance &amp; Planning</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Tracks governance posture, policy adherence, and readiness planning across the DR lifecycle</div>
+                                </div>
+                            </div>
+
+                            <!-- Backup Health group -->
+                            <div class="metrics-group-label">Backup Health</div>
+
+                            <div class="ph2-item mc-pending" style="border-color:#BFDBFE;">
+                                <div class="ph2-icon" style="background:rgba(34,197,94,0.18);font-size:11px;">🕐</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;padding-right:16px;">Backup Currency/Freshness</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Measures how recent backups are, flagging stale or overdue backup jobs in real time</div>
+                                </div>
+                            </div>
+
+                            <div class="ph2-item mc-infra">
+                                <div class="ph2-icon" style="background:rgba(251,146,60,0.18);font-size:11px;">⚙️</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;">Backup Job Health Status</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Real-time status of individual backup jobs — success, failure, skipped, and duration trends</div>
+                                </div>
+                            </div>
+
+                            <div class="ph2-item mc-infra">
+                                <div class="ph2-icon" style="background:rgba(251,146,60,0.18);font-size:11px;">📊</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;">DR Tier Backup Compliance</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Validates each DR tier meets its defined backup SLAs, flagging non-compliant tiers</div>
+                                </div>
+                            </div>
+
+                            <!-- Backup Management group -->
+                            <div class="metrics-group-label">Backup Management</div>
+
+                            <div class="ph2-item mc-infra">
+                                <div class="ph2-icon" style="background:rgba(251,146,60,0.18);font-size:11px;">🔁</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;">Backup Frequency &amp; Retention</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Tracks how often backups run and confirms retention windows align with recovery objectives</div>
+                                </div>
+                            </div>
+
+                            <!-- Infrastructure Readiness group -->
+                            <div class="metrics-group-label">Infrastructure Readiness</div>
+
+                            <div class="ph2-item mc-infra">
+                                <div class="ph2-icon" style="background:rgba(251,146,60,0.18);font-size:11px;">🌐</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;">Cross-Region Failover Routing</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Verifies failover routing rules are configured to redirect traffic across regions during an outage</div>
+                                </div>
+                            </div>
+
+                            <!-- Database Readiness group -->
+                            <div class="metrics-group-label">Database Readiness</div>
+
+                            <div class="ph2-item mc-db">
+                                <div class="ph2-icon" style="background:rgba(244,114,182,0.18);font-size:11px;">🗄️</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title" style="color:#1B2A4A;">Database Tier-Specific Configuration</div>
+                                    <div class="ph2-desc" style="color:#6B7A99;">Checks each database tier has DR configs — replication, failover, and recovery settings — correctly applied</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ph2-footer" style="border-top:1px solid var(--border);margin-top:8px;padding-top:7px;">
+                    <div class="ph2-footer-text" style="color:var(--muted);">Live on Dashboard:</div>
+                    <span class="ph2-chip" style="background:#EEF4FF;color:#2E6BE6;border-color:#BFDBFE;">Phase 1 Delivery</span>
+                </div>
+            </div>
+
+            <!-- ── MILESTONES ── -->
+            <div class="card milestones-card">
+                <div style="display: flex; flex-direction: column; justify-content: space-around;align-items: stretch; width: 100%; height: 100%;">
+                    <div class="card sprint-card">
+                        <div class="card-title">Jira · Sprint Velocity</div>
+
+                        <div class="sprint-body">
+                            <div class="donut-wrap">
+                                <svg width="90" height="90" viewBox="0 0 90 90">
+                                    <circle cx="45" cy="45" r="36" fill="none" stroke="#EEF2FF" stroke-width="9" />
+                                    <circle cx="45" cy="45" r="36" fill="none" stroke="url(#dg)" stroke-width="9"
+                                        stroke-dasharray="226.2" stroke-dashoffset="104.6" stroke-linecap="round" />
+                                    <defs>
+                                        <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#2E6BE6" />
+                                            <stop offset="100%" stop-color="#0FB8C9" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="donut-center">
+                                    <div class="donut-big">8</div>
+                                    <div class="donut-sm">of 13</div>
+                                </div>
+                            </div>
+
+                            <div class="sprint-stats">
+                                <div class="sprint-row">
+                                    <div class="sprint-row-label">Sprints Completed</div>
+                                    <div class="sprint-row-val">61.5%</div>
+                                </div>
+                                <div class="pbar">
+                                    <div class="pbar-fill" style="width:61.5%;"></div>
+                                </div>
+
+                                <div class="sprint-row" style="margin-top:8px;">
+                                    <div class="sprint-row-label">Story Points</div>
+                                    <div class="sprint-row-val">Committed 343 | Completed 304</div>
+                                </div>
+                                <div class="pbar">
+                                    <div class="pbar-fill" style="width:88.6%;background:linear-gradient(90deg,#22C55E,#16A34A);"></div>
+                                </div>
+
+                                <div class="status-chip"><b> Note </b>: Some points were excluded due to approach and access issues!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card-title">Milestone Work Items · Phase 1</div>
+
+                        <div class="ms-row">
+                            <div class="ms-num ms-done">✓</div>
+                            <div class="ms-text">
+                                <div class="ms-title done">Project Kickoff</div>
+                                <div class="ms-sub">Completion Date · 10/24/2025</div>
+                            </div>
+                            <span class="int-badge b-green" style="white-space:nowrap;margin-left:4px;">Completed</span>
+                        </div>
+                        <div class="ms-row">
+                            <div class="ms-num ms-done">✓</div>
+                            <div class="ms-text">
+                                <div class="ms-title done">Completion of Design Document and Risk Register(TSD)</div>
+                                <div class="ms-sub">Completion Date · 12/15/2025</div>
+                            </div>
+                            <span class="int-badge b-green" style="white-space:nowrap;margin-left:4px;">Completed</span>
+                        </div>
+                        <div class="ms-row">
+                            <div class="ms-num ms-prog">⟳</div>
+                            <div class="ms-text">
+                                <div class="ms-title">Architecture Implemention</div>
+                                <div class="ms-sub">Due by · 03/03/2026</div>
+                            </div>
+                            <span class="int-badge b-amber" style="white-space:nowrap;margin-left:4px;">In Progress</span>
+                        </div>
+
+                        <div class="ms-row">
+                            <div class="ms-num ms-prog">⟳</div>
+                            <div class="ms-text">
+                                <div class="ms-title">Full Data Source Integration</div>
+                                <div class="ms-sub">Due by · 03/20/2026</div>
+                            </div>
+                            <span class="int-badge b-amber" style="white-space:nowrap;margin-left:4px;">In Progress</span>
+                        </div>
+
+                        <div class="ms-row">
+                            <div class="ms-num ms-todo">○</div>
+                            <div class="ms-text">
+                                <div class="ms-title" style="color:var(--muted);">End-to-End Demo of MVP Dashboards</div>
+                                <div class="ms-sub">Due by · 04/17/2026</div>
+                            </div>
+                            <span class="int-badge b-gray" style="white-space:nowrap;margin-left:4px;">To Start</span>
+                        </div>
+                        <div class="ms-row">
+                            <div class="ms-num ms-todo">○</div>
+                            <div class="ms-text">
+                                <div class="ms-title" style="color:var(--muted);">Completion of Knowledge Transfer</div>
+                                <div class="ms-sub">Due by · 04/28/2026</div>
+                            </div>
+                            <span class="int-badge b-gray" style="white-space:nowrap;margin-left:4px;">To Start</span>
+                        </div>
+
+                        <div class="ms-track">
+                            <div class="ms-track-seg" style="background:var(--green);"></div>
+                            <div class="ms-track-seg" style="background:var(--green);"></div>
+                            <div class="ms-track-seg" style="background:var(--amber);"></div>
+                            <div class="ms-track-seg" style="background:var(--amber);"></div>
+                            <div class="ms-track-seg" style="background:var(--border);"></div>
+                            <div class="ms-track-seg" style="background:var(--border);"></div>
+                            <div class="ms-track-label">2 / 6 Complete (33%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── PHASE 2 ROADMAP ── -->
+            <div class="card phase2-card">
+                <div class="card-title">Phase 2 · Roadmap & Selling Points</div>
+
+                <div class="scroll-fade">
+                    <div class="scroll-inner" style="max-height:148px;scrollbar-color: rgba(255,255,255,0.2) transparent;">
+                        <div class="ph2-items">
+                            <div class="ph2-item">
+                                <div class="ph2-icon">🧠</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">Vector Embeddings</div>
+                                    <div class="ph2-desc">Semantic search &amp; intelligent data retrieval via vector-based embedding pipeline</div>
+                                </div>
+                            </div>
+                            <div class="ph2-item">
+                                <div class="ph2-icon">🔍</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">CMDB Discovery</div>
+                                    <div class="ph2-desc">Auto-discovery for ServiceNow CMDB missing fields — improves data completeness</div>
+                                </div>
+                            </div>
+                            <div class="ph2-item">
+                                <div class="ph2-icon">🔗</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">CMDB as Data Source</div>
+                                    <div class="ph2-desc">Full ServiceNow CMDB integration, unlocking rich configuration data pipelines</div>
+                                </div>
+                            </div>
+                            <div class="ph2-item">
+                                <div class="ph2-icon">🖥️</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">Admin Dashboard</div>
+                                    <div class="ph2-desc">Centralized admin control panel for platform configuration and user management</div>
+                                </div>
+                            </div>
+                            <div class="ph2-item">
+                                <div class="ph2-icon">👁️</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">TSO View</div>
+                                    <div class="ph2-desc">Dedicated Technology Services Officer view for executive-level visibility and oversight</div>
+                                </div>
+                            </div>
+                            <div class="ph2-item">
+                                <div class="ph2-icon">📊</div>
+                                <div class="ph2-content">
+                                    <div class="ph2-title">Reporting Automation</div>
+                                    <div class="ph2-desc">Automated scheduled report generation and distribution across stakeholder groups</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ph2-footer">
+                    <div class="ph2-footer-text">Target delivery:</div>
+                    <span class="ph2-chip">Phase 2 Scope</span>
+                    <div class="ph2-footer-text" style="margin-left:auto;">6 features planned</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── FOOTER ── -->
+        <div class="footer">
+            <div class="footer-left">Phase 1 · Engineering Project Report</div>
+            <div class="footer-center">
+                <div class="fc-item"><span class="fc-dot" style="background:var(--green);"></span>Completed</div>
+                <div class="fc-item"><span class="fc-dot" style="background:var(--amber);"></span>In Progress</div>
+                <div class="fc-item"><span class="fc-dot" style="background:#64748B;"></span>Not Started / Scoped Out</div>
+            </div>
+            <div class="footer-right">Confidential · Internal Use Only · Feb 2026</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -1451,5 +2905,6 @@
     </div>
 
 </body>
+
 
 </html>
